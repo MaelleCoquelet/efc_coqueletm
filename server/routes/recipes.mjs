@@ -86,7 +86,7 @@ router.put("/edit/:id", async (req, res) => {
     const step_eight = req.body.step_eight || "";
 
     try {
-        const [results] = await conn.query(`UPDATE ${table} SET universe = ?, name_recipe = ?, image_recipe = ?, ingredients = ?, step_one = ?, step_two = ?, step_three = ?, step_four = ?, step_five = ?, step_six = ?, step_seven = ?, step_eight = ? WHERE id_recipe = ?`, [universe, name_recipe, image_recipe, ingredients, step_one, step_two, step_three, step_four, step_five, step_six, step_seven, step_eight, id]);
+        const [results] = await conn.query(`UPDATE ${table} SET universe = ?, name_recipe = ?, image_recipe = ?, ingredients = ?, step_one = ?, step_two = ?, step_three = ?, step_four = ?, step_five = ?, step_six = ?, step_seven = ?, step_eight = ? WHERE id = ?`, [universe, name_recipe, image_recipe, ingredients, step_one, step_two, step_three, step_four, step_five, step_six, step_seven, step_eight, id]);
         res.status(200).json({ success: true, message: "Recette modifiée !", data: results });
     } catch (error) {
         console.log(error);
@@ -103,7 +103,7 @@ router.delete("/delete/:id", async (req, res) => {
         return res.status(500).json({ success: false, message: "L'id reçue n'est pas valide", data: null });
     };
     try {
-        const [results] = await conn.query(`DELETE FROM ${table} WHERE id_recipe = ?`, [id]);
+        const [results] = await conn.query(`DELETE FROM ${table} WHERE id = ?`, [id]);
         if (results.affectedRows == 0) {
             return res.status(404).json({ success: false, message: "Recette non trouvée", data: null });
         };

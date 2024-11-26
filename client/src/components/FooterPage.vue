@@ -8,9 +8,16 @@ import { RouterLink, RouterView } from 'vue-router';
         <p>Cooking Isekai</p>
         <nav>
             <ul>
-                <li>Fake Legal Stuff</li>
-                <li>More Fake Legal Stuff</li>
-                <RouterLink to="/">Settings</RouterLink>
+                <li>
+                    <RouterLink to="/">Recettes</RouterLink>
+                </li>
+                <li>
+                    <RouterLink to="/">Ajouter une nouvelle recette</RouterLink>
+                </li>
+                <li>
+                    <RouterLink to="/">Paramètres</RouterLink>
+                </li>
+
             </ul>
         </nav>
         <p>&copy; 2024</p>

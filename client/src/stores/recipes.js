@@ -29,5 +29,5 @@ export const useRecipesStore = defineStore("recipes", () => {
         return results;
     }
 
-    return {fetchAllRecipes};
+    return {fetchAllRecipes, recipes, fetching};
 });

@@ -8,7 +8,7 @@
 import express from "express";
 import cors from "cors";
 
-const port = 3306;
+const port = 3006;
 const hostname = "127.0.0.1"; // Equivalent de localhost
 
 // Création du serveur

@@ -29,5 +29,22 @@ export const useRecipesStore = defineStore("recipes", () => {
         return results;
     }
 
-    return {fetchAllRecipes, recipes, fetching};
+    // Envoie des données pour new reportage
+    async function addNewRecipe(payload) {
+        fetching.value = true;
+
+        // Lancer la requête
+        const results = await fetcher.post("recipes/add", payload);
+        if (results.success) {
+            // Recharger la liste des reportages afin d'afficher la nouvelle recette créée
+            await fetchAllRecipes(true); //Force la requête
+        };
+
+        console.log(results);
+        fetching.value = false;
+
+        return results;
+    }
+
+    return {fetchAllRecipes, recipes, fetching, addNewRecipe};
 });

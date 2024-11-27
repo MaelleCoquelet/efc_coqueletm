@@ -15,7 +15,7 @@ import { RouterLink, RouterView } from 'vue-router';
                     <RouterLink to="/">Recettes</RouterLink>
                 </li>
                 <li>
-                    <RouterLink to="/">Nouvelle Recette</RouterLink>
+                    <RouterLink to="/add">Nouvelle Recette</RouterLink>
                 </li>
             </ul>
         </nav>

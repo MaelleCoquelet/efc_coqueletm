@@ -14,7 +14,7 @@ const route = useRoute();
         <div class="flex flex-col gap-2">
             <p class="italic">Transformez votre cuisine en terre de légendes</p>
             <nav>
-                <ul>
+                <ul class="flex flex-col gap-3 md:flex-row md:gap-6">
                     <li class="flex gap-2">
                         <RouterLink to="/" class="hover:text-violet-800 flex gap-2">
                             <IconArrow />Recettes

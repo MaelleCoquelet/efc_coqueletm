@@ -22,11 +22,11 @@ onMounted(async () => {
     <img v-if="recipesStore.fetching" src="@/assets/spinner.svg" alt="Icône de chargement">
     <ul class="py-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
       <RouterLink :to="`/recipe/${recipe.id}`" v-for="(recipe, index) in recipesStore.recipes" :key="recipe.id"
-        class="hover:bg-violet-100 *:hover:bg-opacity-100 hover:transition-all ease-in-out min-h-64 max-w-96 bg-top bg-cover"
+        class="hover:bg-violet-100 *:hover:bg-opacity-100 hover:transition-all ease-in-out min-h-80 max-w-lg bg-top bg-cover"
         :style="`background-image:url(${recipe.image_recipe})`">
-        <li class="bg-violet-100 bg-opacity-30">
-          <h3>{{ recipe.universe }}</h3>
-          <h4>{{ recipe.name_recipe }}</h4>
+        <li class="bg-violet-100 bg-opacity-40">
+          <h3 class="p-2">{{ recipe.universe }}</h3>
+          <h4 class="p-2">{{ recipe.name_recipe }}</h4>
         </li>
       </RouterLink>
     </ul>

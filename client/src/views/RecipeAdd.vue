@@ -84,70 +84,74 @@ const addStepEight = computed(() => {
             <h2>Ajout d'une nouvelle recette</h2>
         </header>
     </section>
-    <section>
-        <form action="#" @submit.prevent="preparePayload" class="bg-green-800 p-3 rounded">
-            <label for="titre" class="flex gap-3 items-center bg-green-700 p-2 rounded-t-md">
-                <span class="min-w-52 text-stone-50">Nom de l'univers :</span>
-                <input v-model="formData.universe" type="text" id="titre" class="grow p-2"
-                    placeholder="Alice au Pays des Merveilles" />
+    <section class="flex flex-col items-center">
+        <form action="#" @submit.prevent="preparePayload"
+            class="bg-purple-100 border-2 border-purple-200 p-3 rounded md:w-3/4 w-full flex flex-col gap-3">
+            <label for="titre" class="flex flex-col gap-2 p-2">
+                <span class="">Nom de l'univers :</span>
+                <input v-model="formData.universe" type="text" id="titre"
+                    class="grow p-2 border border-violet-300 bg-purple-50" placeholder="Alice au Pays des Merveilles" />
             </label>
-            <label for="contenu" class="flex gap-3 items-center bg-green-700 p-2">
-                <span class="min-w-52 text-stone-50">Nom de la recette :</span>
-                <input class="grow p-2" v-model="formData.name_recipe" id="contenu"
-                    placeholder="Les boulettes de boeuf"></input>
+            <label for="contenu" class="flex flex-col gap-2 p-2">
+                <span class="">Nom de la recette :</span>
+                <input class="grow p-2 border border-violet-300 bg-purple-50" v-model="formData.name_recipe"
+                    id="contenu" placeholder="Les boulettes de boeuf"></input>
             </label>
-            <label for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Image :</span>
-                <div class="bg-green-300 p-2 hover:bg-green-500 cursor-pointer">Choisir la photo</div>
+            <label for="photo" class="flex gap-8 p-2 items-center">
+                <span class="">Image :</span>
+                <div class="bg-violet-200 p-2 hover:bg-violet-900 hover:text-white cursor-pointer">Choisir la photo
+                </div>
                 <input @change="preparePhotoFile" type="file" id="photo" class="hidden" accept="image/*" />
-                <img v-if="formData.image_recipe != ''" class="max-w-16" :src="formData.image_recipe" alt="Preview">
+                <img v-if="formData.image_recipe != ''" class="max-w-32" :src="formData.image_recipe" alt="Preview">
             </label>
-            <label for="auteur" class="flex gap-3 items-center bg-green-700 p-2">
-                <span class="min-w-52 text-stone-50">Ingrédients :</span>
-                <textarea v-model="formData.ingredients" type="text" id="titre" class="grow p-2"
-                    placeholder="Ingrédients" />
+            <label for="auteur" class="flex flex-col gap-2 p-2">
+                <span class="">Ingrédients :</span>
+                <textarea v-model="formData.ingredients" type="text" id="titre"
+                    class="grow p-2 border border-violet-300 bg-purple-50" placeholder="Ingrédients" />
             </label>
-            <label for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Étape une :</span>
-                <textarea v-model="formData.step_one" type="text" id="titre" class="grow p-2"
+            <label for="photo" class="flex flex-col gap-2 p-2">
+                <span class="">Étape une :</span>
+                <textarea v-model="formData.step_one" type="text" id="titre"
+                    class="grow p-2 border border-violet-300 bg-purple-50"
                     placeholder="Ne pas utiliser son téléphone pour commander et décider d'une recette"></textarea>
             </label>
-            <label for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Étape deux :</span>
-                <textarea v-model="formData.step_two" type="text" id="titre" class="grow p-2"
+            <label for="photo" class="flex flex-col gap-2 p-2">
+                <span class="">Étape deux :</span>
+                <textarea v-model="formData.step_two" type="text" id="titre"
+                    class="grow p-2 border border-violet-300 bg-purple-50"
                     placeholder="Rechercher les recettes possibles sur Hello Fresh"></textarea>
             </label>
-            <label for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Étape trois :</span>
-                <textarea v-model="formData.step_three" type="text" id="titre" class="grow p-2"
+            <label for="photo" class="flex flex-col gap-2 p-2">
+                <span class="">Étape trois :</span>
+                <textarea v-model="formData.step_three" type="text" id="titre" class="grow p-2 border border-violet-300 bg-purple-50"
                     placeholder="Choisir une recette et y passer beaucoup trop de temps "></textarea>
             </label>
-            <label for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Étape quatre :</span>
-                <textarea v-model="formData.step_four" type="text" id="titre" class="grow p-2"
+            <label for="photo" class="flex flex-col gap-2 p-2">
+                <span class="">Étape quatre :</span>
+                <textarea v-model="formData.step_four" type="text" id="titre" class="grow p-2 border border-violet-300 bg-purple-50"
                     placeholder="Manger ?"></textarea>
             </label>
-            <label v-if="addStepFive" for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Étape cinq : (optionnelle)</span>
-                <textarea v-model="formData.step_five" type="text" id="titre" class="grow p-2"
+            <label v-if="addStepFive" for="photo" class="flex flex-col gap-2 p-2">
+                <span class="">Étape cinq : (optionnelle)</span>
+                <textarea v-model="formData.step_five" type="text" id="titre" class="grow p-2 border border-violet-300 bg-purple-50"
                     placeholder="Encore une étape"></textarea>
             </label>
-            <label v-if="addStepSix" for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Étape six : (optionnelle)</span>
-                <textarea v-model="formData.step_six" type="text" id="titre" class="grow p-2"
+            <label v-if="addStepSix" for="photo" class="flex flex-col gap-2 p-2">
+                <span class="">Étape six : (optionnelle)</span>
+                <textarea v-model="formData.step_six" type="text" id="titre" class="grow p-2 border border-violet-300 bg-purple-50"
                     placeholder="Encore une étape"></textarea>
             </label>
-            <label v-if="addStepSeven" for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Étape seven : (optionnelle)</span>
-                <textarea v-model="formData.step_seven" type="text" id="titre" class="grow p-2"
+            <label v-if="addStepSeven" for="photo" class="flex flex-col gap-2 p-2">
+                <span class="">Étape seven : (optionnelle)</span>
+                <textarea v-model="formData.step_seven" type="text" id="titre" class="grow p-2 border border-violet-300 bg-purple-50"
                     placeholder="Encore une étape"></textarea>
             </label>
-            <label v-if="addStepEight" for="photo" class="flex gap-3 items-center bg-green-700 p-2 rounded-b-md">
-                <span class="min-w-52 text-stone-50">Étape huit : (optionnelle)</span>
-                <textarea v-model="formData.step_eight" type="text" id="titre" class="grow p-2"
+            <label v-if="addStepEight" for="photo" class="flex flex-col gap-2 p-2">
+                <span class="">Étape huit : (optionnelle)</span>
+                <textarea v-model="formData.step_eight" type="text" id="titre" class="grow p-2 border border-violet-300 bg-purple-50"
                     placeholder="Encore une étape"></textarea>
             </label>
-            <button :class="{ disabled: !canSubmit }" class="bg-green-300 hover:bg-green-500 w-full p-4 mt-2">Ajouter la
+            <button :class="{ disabled: !canSubmit }" class="bg-green-100 hover:bg-green-300 grow p-4">Ajouter la
                 recette</button>
         </form>
     </section>

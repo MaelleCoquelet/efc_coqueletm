@@ -1,10 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index/html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  darkMode: "selector",
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}",],
   theme: {
+    fontFamily: {
+      sans: ['Chilanka', 'cursive'],
+      serif: ['Walter Turncoat', 'cursive']
+    },
     extend: {},
   },
   plugins: [],

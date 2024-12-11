@@ -24,7 +24,7 @@ export const useRecipesStore = defineStore("recipes", () => {
         } else { console.log(results); }
 
         fetching.value = false;
-        
+
         // On retourne les résultats
         return results;
     }
@@ -46,5 +46,9 @@ export const useRecipesStore = defineStore("recipes", () => {
         return results;
     }
 
-    return {fetchAllRecipes, recipes, fetching, addNewRecipe};
+    function getRecipe(recipeId) {
+        return recipes.value.find((recipe) => recipe.id == recipeId);
+    }
+
+    return { fetchAllRecipes, recipes, fetching, addNewRecipe, getRecipe };
 });

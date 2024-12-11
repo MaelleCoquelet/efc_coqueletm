@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router';
 <template>
     <header class="text-white bg-black">
 
-        <h1>
+        <h1 class="">
             <RouterLink to="/">CookingIsekai</RouterLink>
         </h1>
         <p>Transformez votre cuisine en terre de légendes</p>

@@ -16,10 +16,12 @@ onMounted(async () => {
   <section>
     <header>
       <h2>Inventaire des recettes</h2>
-      <img v-if="recipesStore.fetching" src="@/assets/spinner.svg" alt="Icône de chargement">
+      <p>Bienvenue sur Cooking Isekai, votre site de référence en recettes de l'imaginaire. Trouvez ici vos recettes
+        préférées de l'univers de Zelda, Mario, Lara Croft et bien d'autres !</p>
     </header>
     <ul>
-      <RouterLink to="/" v-for="(recipe, index) in recipesStore.recipes" :key="recipe.id">
+      <img v-if="recipesStore.fetching" src="@/assets/spinner.svg" alt="Icône de chargement">
+      <RouterLink :to="`/recipe/${recipe.id}`" v-for="(recipe, index) in recipesStore.recipes" :key="recipe.id">
         <li>
           <h3>{{ recipe.universe }}</h3>
           <h4>{{ recipe.name_recipe }}</h4>

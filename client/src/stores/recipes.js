@@ -46,9 +46,25 @@ export const useRecipesStore = defineStore("recipes", () => {
         return results;
     }
 
+    // Fonction pour retourner une seule recette
     function getRecipe(recipeId) {
         return recipes.value.find((recipe) => recipe.id == recipeId);
     }
 
-    return { fetchAllRecipes, recipes, fetching, addNewRecipe, getRecipe };
+    // Fonction pour supprimer une recette
+
+    async function deleteRecipe(recipeId) {
+        fetching.value = true;
+        const results = await fetcher.delete(`recipes/delete/${recipeId}`);
+        if (results.success) {
+            // Recharger la liste des reportages pour afficher la liste des recettes mise à jour
+            await fetchAllRecipes(true); // Force la requête
+        }
+        console.log(results);
+
+        fetching.value = false;
+        return results;
+    }
+
+    return { fetchAllRecipes, recipes, fetching, addNewRecipe, getRecipe, deleteRecipe };
 });

@@ -59,6 +59,8 @@ async function preparePayload() {
     };
 }
 
+// Les fonctions ci-dessous sont un moyen de proposer des étapes supplémentaires optionnelles. 
+
 const addStepFive = computed(() => {
     return formData.step_four != "";
 });
